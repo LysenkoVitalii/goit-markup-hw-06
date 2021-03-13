@@ -120,7 +120,7 @@ p {
   content: "";
   display: block;
   left: 0;
-  bottom: -1;
+  bottom: -1px;
   margin: 0 auto;
   margin-top: 28px;
 
@@ -562,14 +562,18 @@ p {
 
 .footer .container {
   display: flex;
+  align-items: baseline;
 }
 
 .footer .footer-content {
-  margin-bottom: 0;
+  margin: 0;
   vertical-align: baseline;
 }
 
 .footer-logo {
+  display: block;
+  margin-bottom: 20px;
+
   color: var(--color-text);
   font-family: Raleway, sans-serif;
   font-style: normal;
@@ -584,8 +588,6 @@ p {
 }
 
 .contacts-links {
-  margin-top: 29px;
-  
   font-weight: normal;
   font-size: 14px;
   line-height: 1.71;
@@ -784,7 +786,7 @@ p {
 
 }
 
-.form-tittle h2 {
+.form-tittle p {
   margin-bottom: 12px;
 
   font-weight: bold;
@@ -957,7 +959,7 @@ p {
   cursor: pointer;
 }
 
-
+.card:focus .overlay-card,
 .card:hover .overlay-card {
   opacity: 1;
   transform: translateY(0);
@@ -979,23 +981,22 @@ p {
   transition: box-shadow 250ms var(--cubic);
 }
 
-.portfolio-list-item:hover, .overlay-card
-.portfolio-list-item:focus .overlay-card {
+.portfolio-list-item:hover, 
+.portfolio-list-item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+ 
+}
+
+.portfolio-list-item:hover .overlay-card, 
+.portfolio-list-item:focus .overlay-card {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-trumb {
   position: relative;
   overflow: hidden;
-}
-
-
-.card-trumb:hover .overlay-card {
-  opacity: 1;
-  background-color: rgba(33,150,243,0.9);
-  transform: translateY(0);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay-card {
@@ -1028,7 +1029,8 @@ p {
   border-radius: 4px;
 }
 
-.card-title-project:hover .overlay-text {
+.card-title-project:hover .overlay-text,
+.card-title-project:focus .overlay-text {
   transform: translateY(0);
   transition: color 250ms var(--cubic);
 }
